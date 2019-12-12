@@ -9,14 +9,13 @@ from setuptools import setup
 import kingbase
 
 setup(
-    name="PyHive",
+    name="kingbase",
     version=kingbase.__version__,
     description="Python interface to Kingbase",
-    url='https://github.com/dropbox/PyHive',
-    author="Jing Wang",
-    author_email="jing@dropbox.com",
+    author="Min Wang",
+    author_email="min@minspace.cn",
     license="Apache License, Version 2.0",
-    packages=['pyhive', 'TCLIService'],
+    packages=['kingbase'],
     classifiers=[
         "Intended Audience :: Developers",
         "License :: OSI Approved :: Apache Software License",
@@ -30,11 +29,11 @@ setup(
     extras_require={
         'sqlalchemy': ['sqlalchemy>=0.8.7'],
         'kerberos': ['requests_kerberos>=0.12.0'],
+        'psycopg2-binary': ['psycopg2-binary==2.8.4'],
     },
     entry_points={
         'sqlalchemy.dialects': [
-            'hive = pyhive.sqlalchemy_hive:HiveDialect',
-            'presto = pyhive.sqlalchemy_presto:PrestoDialect',
+            'hive = kingbase.kingbase_dialects:PGDialect_kingbase',
         ],
     }
 )
