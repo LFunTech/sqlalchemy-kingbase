@@ -11,10 +11,11 @@ from sqlalchemy.dialects.postgresql.psycopg2 import PGDialect_psycopg2
 
 class PGDialect_kingbase(PGDialect_psycopg2):
     name = "kingbase"
+
     # driver = "kingbase"
 
     def _get_server_version_info(self, connection):
-        return tuple(1)
+        return tuple(1, 2, 3)
         v = connection.execute("select version()").scalar()
         m = re.match(
             r".*(?:PostgreSQL|EnterpriseDB|Kingbase) "
