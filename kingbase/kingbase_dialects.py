@@ -10,7 +10,8 @@ from sqlalchemy.dialects.postgresql.psycopg2 import PGDialect_psycopg2
 
 
 class PGDialect_kingbase(PGDialect_psycopg2):
-    driver = "kingbase"
+    name = "kingbase"
+    # driver = "kingbase"
 
     def _get_server_version_info(self, connection):
         return tuple(1)
