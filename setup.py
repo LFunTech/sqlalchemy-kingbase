@@ -33,7 +33,7 @@ setup(
     },
     entry_points={
         'sqlalchemy.dialects': [
-            'kingbase.psycopg2 = kingbase.kingbase_dialects:PGDialect_kingbase',
+            'kingbase = kingbase.kingbase_dialects:PGDialect_kingbase',
         ],
     }
 )
