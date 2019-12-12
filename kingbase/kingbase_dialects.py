@@ -6,7 +6,7 @@ date   : 2019/12/12
 """
 import re
 
-from sqlalchemy.dialects.postgresql.psycopg2 import PGDialect_psycopg2
+from .psycopg2 import PGDialect_psycopg2
 
 
 class PGDialect_kingbase(PGDialect_psycopg2):
