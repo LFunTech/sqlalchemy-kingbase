@@ -220,7 +220,7 @@ class PGDialect_kingbase(PGDialect_psycopg2):
         ) in rows:
             column_info = self._get_column_info(
                 name,
-                format_type.upper(),
+                format_type.lower(),
                 default_,
                 notnull,
                 domains,
