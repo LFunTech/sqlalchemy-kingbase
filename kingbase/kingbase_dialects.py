@@ -13,11 +13,21 @@ from sqlalchemy.dialects.postgresql.psycopg2 import PGDialect_psycopg2
 from sqlalchemy.engine import reflection
 from sqlalchemy.sql import sqltypes
 
+from kingbase.driver_extras import HstoreAdapter
+
 
 class PGDialect_kingbase(PGDialect_psycopg2):
     name = "kingbase"
 
-    # driver = "kingbase"
+
+    @util.memoized_instancemethod
+    def _hstore_oids(self, conn):
+        if self.psycopg2_version >= self.FEATURE_VERSION_MAP["hstore_adapter"]:
+            # extras = self._psycopg2_extras()
+            oids = HstoreAdapter.get_oids(conn)
+            if oids is not None and oids[0]:
+                return oids[0:2]
+        return None
 
     def _get_server_version_info(self, connection):
         return (9, 3)
