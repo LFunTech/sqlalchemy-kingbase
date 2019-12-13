@@ -5,6 +5,7 @@ Author : Min
 date   : 2019/12/12
 """
 import re
+from collections import defaultdict
 
 from sqlalchemy import exc
 from sqlalchemy import sql
@@ -18,7 +19,6 @@ from kingbase.driver_extras import HstoreAdapter
 
 class PGDialect_kingbase(PGDialect_psycopg2):
     name = "kingbase"
-
 
     @util.memoized_instancemethod
     def _hstore_oids(self, conn):
